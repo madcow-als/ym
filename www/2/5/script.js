@@ -1,14 +1,12 @@
 
 
-
-var myMetro;
-
 $(function(){
-	var $MetroSelected = $('.metro_selected');
+	var metroSelected = $('.metro_selected');
 
 
 	var oMetro = new als.Metro({
 		city : 'moscow',
+//        city : 'spb',
 		node : '.metrobox'
 	});
 
@@ -17,9 +15,9 @@ $(function(){
 
 		$('.metro_selected_title').toggle(m.length > 0);
 
-		var h = $MetroSelected.height();
+		var h = metroSelected.height();
 
-		$MetroSelected
+		metroSelected
 			.css('height',h+'px')
 			.html('')
 		;
@@ -33,32 +31,24 @@ $(function(){
 
 				$Item.remove();
 			});
-			$MetroSelected.append($Item);
+			metroSelected.append($Item);
 		});
-		$MetroSelected.css('height','auto');
+		metroSelected.css('height','auto');
 
-		var hew_h = $MetroSelected.height();
+		var hew_h = metroSelected.height();
 
-		$MetroSelected
+		metroSelected
 			.css('height',h+'px')
 			.animate({'height':hew_h}, 500, function(){
-           		$MetroSelected.css('height','auto');
+           		metroSelected.css('height','auto');
 	       	})
 		;
 	});
 	//oMetro.removeEventListener('stationchange',function(){})
 
 
-	myMetro = oMetro;
-
-
-
-    $('.metrobox')
-        .show()
-//        .height(1000)
-    ;
     oMetro.show(function(){
-        oMetro.setSelectedStations($MetroSelected.find('dl').map(function(){
+        oMetro.setSelectedStations(metroSelected.find('dl').map(function(){
             return $(this).attr('rel');
         }));
     });
