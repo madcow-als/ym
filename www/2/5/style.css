@@ -14,3 +14,43 @@ a {
 a:hover, .pseudo:hover {
     color: #ed3841;
 }
+
+
+
+.metro_selected dl {
+    display: inline-block;
+    margin: 0;
+    padding: 5px 20px 0 0;
+}
+.metro_selected dt {
+    display: inline;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+}
+.metro_selected dd {
+    cursor: pointer;
+    display: inline-block;
+    height: 7px;
+    margin: 0 0 0 10px;
+    padding: 0;
+    vertical-align: 2px;
+    width: 7px;
+}
+
+
+.metro_selected {
+	margin: 0 0 10px;
+	position: relative;
+	overflow: hidden;
+}
+.metro_selected dl {
+	padding: 5px 20px 0 0;
+	display: inline-block;
+	//display: inline;
+	zoom:1;
+}
+.metro_selected_title {
+	margin: 20px 0 0;
+	font-weight: bold;
+}

@@ -25,7 +25,7 @@ $(function(){
 		;
 
 		$.each(m,function(i,val){
-			var $Item = $('<dl rel="'+val.id+'"><dt>'+ val.name +'</dt><dd></dd></dl>');
+			var $Item = $('<dl rel="'+val.id+'"><dt>'+ val.name +'</dt><dd>x</dd></dl>');
 
 			$Item.find('dd').click(function(){
 
@@ -55,7 +55,7 @@ $(function(){
 
     $('.metrobox')
         .show()
-        .height(1000)
+//        .height(1000)
     ;
     oMetro.show(function(){
         oMetro.setSelectedStations($MetroSelected.find('dl').map(function(){
