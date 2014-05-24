@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<doc>
+
+    <form name="name">Василий</form>
+    <form name="lastname">Петров</form>
+    <form name="mail">vasiliy@petrov.ru</form>
+    <form name="text">XSL (eXtensible Stylesheet Language) — семейство рекомендаций консорциума W3C, описывающее языки преобразования и визуализации XML-документов. Состоит из трех частей:
+
+    XSL Transformations (XSLT) — язык преобразований XML-документов.
+    XSL Formatting Objects (XSL-FO) — язык разметки типографских макетов и иных предпечатных материалов.
+    XPath — язык путей и выражений, используемый в XSLT для доступа к отдельным частям XML-документа. &amp;
+    </form>
+
+    <form name="profession">Токарь</form>
+    <form name="profession">Пекарь</form>
+
+    <form name="resume" type="file"  src="resume.doc" ext="JS" size="12,5 КБ">Base64</form>
+
+    <form name="photo" type="file"  src="1.jpg" ext="JPG" size="13,5 КБ">Base64</form>
+    <form name="photo" type="file"  src="2.png" ext="PNG" size="54,1 КБ">Base64</form>
+
+    <form name="somedata" type="file"  src="3.pdf" ext="PDF" size="23,5 КБ">Base64</form>
+    <form name="somedata">Такое вот сочетание строки и файла</form>
+
+</doc>

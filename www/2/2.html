@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Задача 3</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+		function compare(obj1, obj2) {
+			var res = {};
+
+			for(var i in obj1){
+				if(i in obj2){
+					if(obj1[i] == obj2[i]){
+						res[i] = 'Не изменен';
+					} else {
+						res[i] = 'Изменен';
+					}
+				} else {
+					res[i] = 'Удален';
+				}
+			}
+
+			for(i in obj2){
+				if( !(i in res)){
+					res[i] = 'Добавлен';
+				}
+			}
+
+			return res;
+		}
+
+		function toObj(text) {
+			var
+				res = {},
+				m = text.split('\n')
+			;
+
+			for(var i = 0, l=m.length; i < l ; i++){
+				var val = m[i].replace(/\s+/g,'');
+
+				if(val.length){
+					var pieces = val.split('=');
+					res[pieces[0]] = pieces[1] || '';
+				}
+			}
+
+			return res;
+		}
+
+		$(function () {
+			var
+				inp = $('input'),
+				text = $('textarea')
+			;
+
+			inp.keyup(function (e) {
+				if(e.which == 13){
+					_go();
+				}
+			});
+
+			$('button').click(function () {
+				_go();
+			});
+
+			_go();
+
+			function _go() {
+				var
+					obj1 = toObj($('.form1').val()),
+					obj2 = toObj($('.form2').val())
+				;
+
+				var
+					res = compare(obj1, obj2),
+					str = ''
+				;
+				for(i in res){
+					str += i + ' - ' + res[i] + '<br/>';
+				}
+
+				$('div').html(str);
+			}
+
+
+		});
+
+
+	</script>
+</head>
+<body>
+	<h1>Задача 3</h1>
+
+	<table>
+		<td>
+			<textarea cols="30" rows="10" class="form1">
+field1=5
+field2=asd
+field3=Привет
+			</textarea>
+		</td>
+		<td>
+			<textarea cols="30" rows="10" class="form2">
+field2=asd
+field3=Пока
+field4=123
+field5=100500
+			</textarea>
+		</td>
+	</table>
+
+	<br/>
+	<button>Вперед!</button>
+
+	<br/>
+	<h2>Результат:</h2>
+	<div style="padding:5px;border:1px solid #000">&nbsp;</div>
+</body>
+</html>

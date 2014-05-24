@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Задача 2</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+		function serialize(obj, url) {
+			var str = '';
+
+			for(var i in obj){
+				if(str){
+					str += '&';
+				}
+
+				str += encodeURIComponent(i) + '=' + encodeURIComponent(obj[i]);
+			}
+
+			// адрес может содержать хэш, делаем проверку
+			var
+				hash = '',
+				index = url.indexOf('#'),
+				beforeHash = url
+			;
+
+			if(url.indexOf('#') != -1){
+				beforeHash = url.split('#')[0];
+				hash = url.substr(index);
+			}
+			return beforeHash + ( beforeHash.indexOf('?') != -1 ? '&' : '?' ) + str + hash;
+		}
+
+		$(function () {
+			var
+				inp = $('input'),
+				text = $('textarea')
+			;
+
+			inp.keyup(function (e) {
+				if(e.which == 13){
+					_go();
+				}
+			});
+
+			$('button').click(function () {
+				_go();
+			});
+
+			_go();
+
+			function _go() {
+				$('div').html( serialize( $.parseJSON(text.val()), inp.val() ));
+			}
+		});
+	</script>
+</head>
+<body>
+	<h1>Задача 2</h1>
+	<input type="text" style="width:500px" value="http://company.yandex.ru/job/vacancies/?city=spb" /><br/>
+	<textarea cols="30" rows="10">
+{
+	"a" : 1,
+	"b" : "asd",
+	"c" : "Вася"
+}
+	</textarea><br/>
+	<button>Вперед!</button>
+
+	<br/>
+	<h2>Результат:</h2>
+	<div style="padding:5px;border:1px solid #000">&nbsp;</div>
+</body>
+</html>
