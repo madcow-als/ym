@@ -53,4 +53,5 @@ a:hover, .pseudo:hover {
 .metro_selected_title {
 	margin: 20px 0 0;
 	font-weight: bold;
+    display: none;
 }
