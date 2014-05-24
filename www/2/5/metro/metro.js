@@ -52,7 +52,7 @@ als.Metro = function(params){
 als.Metro.data = {
 
 	// Дефолтный путь к папке с файлами виджета
-	dir			: '/f/1/global/metro',
+	dir			: '5/metro',
 
 
 	// Кеш данных для разных городов
@@ -293,6 +293,8 @@ als.Metro.prototype = {
 	initSearch	: function(){
 		var self = this;
 
+        if(!$.fn.autocomplete) return;
+
 		self.filter = self.box.find('.als_metro_search input');
 		var m = $.map(self.stations,function(item){
 			return {
@@ -319,7 +321,7 @@ als.Metro.prototype = {
 				self.node.trigger('mapchange');
 				return false;
 			}
-		}).data( "autocomplete" )._renderItem = function( ul, item ) {
+		}).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
 			return $( "<li></li>" )
 				.data( "item.autocomplete", item )
 				.append( "<a>" + item.label + "</a>" )
@@ -571,8 +573,9 @@ als.Metro.prototype = {
 	load	: function(callback){
 		var self = this;
 		if(!als.Metro.data.cityData[self.city]){
+
 			$.getJSON(als.Metro.data.url(self.city), function(data) {
-				console.dir(data)
+//				console.dir(data);
 				als.Metro.data.cityData[self.city] = data;
 				if(callback) callback();
 			});

@@ -1,0 +1,16 @@
+body {
+    font: 14px Arial;
+}
+a {
+    color: #055fbb;
+}
+
+.pseudo {
+    color: #055fbb;
+	border-bottom: 1px dotted;
+    cursor: pointer;
+}
+
+a:hover, .pseudo:hover {
+    color: #ed3841;
+}
